@@ -41,7 +41,7 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, async tabs => {
             },
             body: new URLSearchParams({
                 text: result0,
-                max_sentences: '3'
+                max_sentences: '2'
             })
         };
         
@@ -51,15 +51,26 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, async tabs => {
             console.log(result);
             console.log(result.length)
 
-            //slice to include summary only
-            let summaryPosition = result.indexOf("summary") + 8;
+            // substring to include summary only
+            let summaryPosition = result.indexOf("\"summary\":") + 11;
             console.log(summaryPosition)
-            let slicedResult = currentUrl.slice(summaryPosition);
-            console.log(slicedResult)
-            
-            // display summary on HTML
-            document.getElementById("summary").innerHTML = slicedResult;
-            
+            let substringResult = result.substring(summaryPosition, result.length - 4);
+            console.log(substringResult)
+
+            // regex to remove special characters
+            let cleanSummary = substringResult.replace(/<\/?[^>\n]+(>|$)/g, '')
+            let cleanSummary2 = cleanSummary.replace(/\\u[0-9a-fA-F]{4}/g, '')
+            let cleanSummary3 = cleanSummary2.replace(/\\n/g, '')
+            let cleanSummary4 = cleanSummary3.replace(/\\/g, '')
+            console.log(cleanSummary4)
+            if (cleanSummary4.length>0) {
+                // display summary on HTML
+                document.getElementById("summary").innerHTML = cleanSummary4;
+            } else {
+                document.getElementById("summary").innerHTML = "*Summary unavailable for this site*";
+            }
+           
+
         } catch (error) {
             console.error(error);
         }

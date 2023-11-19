@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Flashcard Generator",
+  "name": "Summary Tool",
   "version": "1.0",
   "icons": {
     "16": "images/icon-16.png",
@@ -17,3 +17,4 @@
   "permissions": ["activeTab"]
 
 }
+

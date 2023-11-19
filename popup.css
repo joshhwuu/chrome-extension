@@ -3,10 +3,42 @@
 }
 
 body {
-    background: white;
+    background: #39394d;
     width: 20rem;
+    font-size: 10px;
+    margin: 20px;
 }
 
 .title {
     text-align: center;
+    font-size: 15px;
+    margin: 10px;
+    color: #b6b6bf;
+    text-decoration: underline;
+}
+
+.url {
+    text-align: center;
+    font-size: 15px;
+    color: #b6b6bf;
+}
+
+.summarizedinfo {
+    font-size: 15px;
+    color: white;
+    margin: 10px;
+    line-height: 1.5;
+
+}
+
+.container1 {
+    background: black;
+    border: solid;
+    padding: 10px;
+}
+
+.summarytitle {
+    color: #b6b6bf;
+    text-align: center;
+    font-size: 15px;
 }
