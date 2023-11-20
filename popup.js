@@ -89,7 +89,7 @@ const data = {
     user_id: 'D0MQIhCfnnR2fkDiqLT7OUcmjBp1',
     saved_item_id: 't8PyvTxChJDyJWVVSDGunf',
     api_key: 'a411352ee2884787947d60f23fec6dd5',
-    openai_token: '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',
+    openai_token: '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',
     pipeline_inputs: [
         { input_name: 'URL', value: currentUrl }
     ],
@@ -109,6 +109,7 @@ console.log(url1);
 const headers1 = {
     'x-auth-key': 'D0MQIhCfnnR2fkDiqLT7OUcmjBp1',
 };
+let arr;
 
 function pollEndpoint() {
 
@@ -122,6 +123,7 @@ function pollEndpoint() {
                 const state = data.state;
                 if (state === 'DONE') {
                     console.log(data.outputs);
+                    document.getElementById("flashcards").innerHTML = data.outputs["str"];
                     clearInterval(polling);
                 } else if (state === 'FAILED' || state === 'TERMINATED') {
                     console.log('Failed');
@@ -137,7 +139,5 @@ function pollEndpoint() {
 }
 
 pollEndpoint();
-let arr = data.outputs;
-console.log(arr);
 
 });
