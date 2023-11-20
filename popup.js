@@ -11,7 +11,7 @@ console.log(currentUrl);
 // slice url before concatenating
 let slicedUrl = currentUrl.slice(8);
 
-// get article data with API
+// use Article Data Extraction and Text Mining API to fetch data to be summarized
 const url0 = 'https://lexper.p.rapidapi.com/v1.1/extract?url=https%3A%2F%2F' + slicedUrl;
 
 // check if url0 is correct
@@ -41,7 +41,7 @@ try {
         },
         body: new URLSearchParams({
             text: result0,
-            max_sentences: '1'
+            max_sentences: '2'
         })
     };
     
