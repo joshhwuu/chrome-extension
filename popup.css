@@ -3,7 +3,7 @@
 }
 
 body {
-    background: #39394d;
+    background: white;
     width: 20rem;
     font-size: 10px;
     margin: 20px;
@@ -11,18 +11,22 @@ body {
 
 .title {
     text-align: center;
-    font-size: 15px;
+    font-size: 40px;
     margin: 10px;
-    color: #b6b6bf;
-    text-decoration: underline;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,0,154,1) 35%, rgba(234,91,219,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.url {
+
+.info {
     text-align: center;
-    font-size: 15px;
-    color: #b6b6bf;
+    font-style: italic;
+    font-size: 9px;
+    color: black;
 }
-
 .summarizedinfo {
     font-size: 15px;
     color: white;
@@ -32,13 +36,22 @@ body {
 }
 
 .container1 {
-    background: black;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,0,154,1) 35%, rgb(6, 2, 69) 100%);
     border: solid;
     padding: 10px;
+    border-radius: 25px;
+    border: 2px solid #000000;
+    
 }
 
 .summarytitle {
     color: #b6b6bf;
     text-align: center;
     font-size: 15px;
+}
+
+.desc {
+    text-align: center;
+    font-size: 15px;
+    color: black;
 }
