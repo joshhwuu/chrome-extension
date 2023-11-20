@@ -1,4 +1,4 @@
-# chrome-extension
+# InfoSnap
 ## This project was completed as a submission to NwHack's HackCamp 2023. Keep in mind that API keys in this project are free trials and may not work for you.
 A Google Chrome extension that uses three APIs and an AI automation framework to generate article summaries with AI. 
 
