@@ -80,4 +80,66 @@ try {
     console.error(error);
 }
 
+const url = 'https://api-v2.agenthub.dev/remote_start_pipeline';
+const headers = {
+    'Content-Type': 'application/json',
+    'x-auth-key': 'D0MQIhCfnnR2fkDiqLT7OUcmjBp1'
+};
+const data = {
+    user_id: 'D0MQIhCfnnR2fkDiqLT7OUcmjBp1',
+    saved_item_id: 't8PyvTxChJDyJWVVSDGunf',
+    api_key: 'a411352ee2884787947d60f23fec6dd5',
+    openai_token: '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',
+    pipeline_inputs: [
+        { input_name: 'URL', value: currentUrl }
+    ],
+};
+
+const response = await fetch(url, {
+    method: 'POST',
+    headers: headers,
+    body: JSON.stringify(data),
+})
+let str = await response.json();
+console.log(str);
+const run_id = str.slice(37);
+
+const url1 = 'https://api-v2.agenthub.dev/plrun?run_id=' + run_id;
+console.log(url1);
+const headers1 = {
+    'x-auth-key': 'D0MQIhCfnnR2fkDiqLT7OUcmjBp1',
+};
+
+function pollEndpoint() {
+
+    const fetchData = () => {
+        fetch(url1, {
+            method: 'GET',
+            headers: headers1
+        })
+            .then(response => response.json())
+            .then(data => {
+                const state = data.state;
+                if (state === 'DONE') {
+                    console.log(data.outputs);
+                    clearInterval(polling);
+                } else if (state === 'FAILED' || state === 'TERMINATED') {
+                    console.log('Failed');
+                    clearInterval(polling);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                clearInterval(polling);
+            });
+    };
+    const polling = setInterval(fetchData, 2000);
+}
+
+pollEndpoint();
+let arr = data.outputs;
+for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+}
+
 });
