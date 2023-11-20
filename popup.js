@@ -41,7 +41,7 @@ try {
         },
         body: new URLSearchParams({
             text: result0,
-            max_sentences: '2'
+            max_sentences: '1'
         })
     };
     
