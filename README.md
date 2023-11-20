@@ -5,6 +5,6 @@ Article Data Extraction and Text Mining:
 https://rapidapi.com/lexper/api/article-data-extraction-and-text-mining/
 
 
-TextGears
+TextGears:
 https://rapidapi.com/Textgears/api/textgears/
 
