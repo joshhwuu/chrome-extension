@@ -52,7 +52,7 @@ try {
         console.log(result.length)
 
         // substring to include summary only
-        let summaryPosition = result.indexOf("\"summary\":") + 11;
+        let summaryPosition = result.indexOf("\"summary\":") + 12;
         console.log(summaryPosition)
         let substringResult = result.substring(summaryPosition, result.length - 4);
         console.log(substringResult)
@@ -68,7 +68,7 @@ try {
             // display summary on HTML
             document.getElementById("summary").innerHTML = cleanSummary4;
         } else {
-            document.getElementById("summary").innerHTML = "*Summary unavailable for this site*";
+            document.getElementById("summary").innerHTML = "* Summary unavailable for this site *";
         }
         
 
